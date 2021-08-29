@@ -1,0 +1,69 @@
+%%Identification
+%%The package identifies itself and the LaTeX version needed
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{mPackage2}[Matan Shtepel's LaTeX package. Includes items used for general writing.]
+
+%%Required packages and preliminary definitions, needed by the options
+
+\RequirePackage{xcolor}
+\RequirePackage{amsfonts} %for bb fonts
+\RequirePackage{graphicx} %defined commands below
+\RequirePackage{bm}
+\RequirePackage{hyperref} %use \label{name of place to refrence} and \nameref{name of place to refrence} to go there in text 
+
+
+%%This parts handles the options passed to the package.
+
+    %\DeclareOption{red}{\renewcommand{\wordcolour}{sharelatexcolour}}
+    %\DeclareOption{blue}{\renewcommand{\wordcolour}{mybluecolour}}
+    %\DeclareOption*{\PackageWarning{examplepackage}{Unknown ‘\CurrentOption’}}
+    %\ProcessOptions\relax
+
+%%% Body of the package, most of the declarations appear here.
+
+    
+    %%General use (not subject specific) commands
+    
+        \newcommand{\comment}[1]{}%define a new command that effectively does nothing with the input
+        
+        
+        \newenvironment{indentedBlock}{\begin{adjustwidth}{1cm}{}}{\end{adjustwidth}}
+        
+        \newcommand{\titem}[1]{\item{}\textit{#1}} %creates a titled item, has an argument for title 
+        \newcommand{\bitem}[1]{\item{}\textbf{#1}}
+    
+        \newcounter{Question}
+        \newcommand{\question}[1]{\textcolor{purple}{($Q_{\theQuestion}$)\textit{ #1}}}
+    
+    %% Algorithms 
+    
+        \newcommand{\bigO}[1]{\mathcal{O}(#1)} %define the bigO symbol
+    
+    %% Classes of numbers for in-text use
+        
+        \newcommand{\reals}{$\mathbb{R}$}
+        \newcommand{\rats}{$\mathbb{Q}$}
+        \newcommand{\ints}{$\mathbb{Z}$}
+        \newcommand{\nats}{$\mathbb{N}$}
+    
+    %% Axiomatic Theory of Algorithms
+    
+        \newcommand{\K}{$\bm{K}$}
+        \newcommand{\aaa}{automaton/algorithm}
+        \newcommand{\aaas}{automata/algorithms}
+        \newcommand{\totalK}{\textit{Total}$\bm{K}$}
+        \newcommand{\Kall}{$\bm{K}_{all}$}
+        \newcommand{\Ktotal}{$\bm{K}_{total}$}
+    
+    %%Image Display
+        
+        \graphicspath{ {./images/} }
+        
+        %incl
+        \newcommand{\imgScaleDesc}[3]{\includegraphics[scale=#2]{#1}\\
+        
+        \textit{#3}\\
+        
+        }
+
+    
